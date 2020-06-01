@@ -30,7 +30,7 @@ namespace FundaAssignment.API
             services.AddControllers();
             services.AddControllersWithViews();
             services.AddTransient<IObjectService, ObjectService>();
-            services.AddSingleton<IObjectRepository>(_ => new ObjectRepository(Configuration["ApiEndpoint"]));
+            services.AddSingleton<IObjectRepository>(_ => new ObjectRepository($"{Configuration["ApiEndpoint"]}/{Configuration["ApiKey"]}"));
 
         }
 

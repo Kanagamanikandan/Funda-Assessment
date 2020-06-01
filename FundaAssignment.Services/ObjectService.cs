@@ -17,7 +17,7 @@ namespace FundaAssignment.Services
         }
         public async Task<IEnumerable<Entities.Makelaar>> GetTop10MakelaarsInAmsterdam(bool withTuin = false)
         {
-            var objects = withTuin ? await _objectRepository.GetObjectsWithTuin() : await _objectRepository.GetObjects();
+            var objects = withTuin ? await _objectRepository.GetObjectsWithTuin("amsterdam") : await _objectRepository.GetObjects("amsterdam");
             return objects.GroupBy(o => new { o.MakelaarId, o.MakelaarNaam })
                  .Select(group =>
                  new Makelaar

@@ -9,7 +9,7 @@ namespace FundaAssignment.Repository
 {
     public interface IObjectRepository
     {
-        Task<IEnumerable<Entities.Object>> GetObjects();
-        Task<IEnumerable<Entities.Object>> GetObjectsWithTuin();
+        Task<IEnumerable<Entities.Object>> GetObjects(string city);
+        Task<IEnumerable<Entities.Object>> GetObjectsWithTuin(string city);
     }
 }

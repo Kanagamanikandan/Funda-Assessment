@@ -18,19 +18,19 @@ namespace FundaAssignment.Repository
         private string _url;
         public ObjectRepository(string url)
         {
-            _url = url;
+            _url = $"{url}/?type=koop";
         }
-        public async Task<IEnumerable<Entities.Object>> GetObjects()
+        public async Task<IEnumerable<Entities.Object>> GetObjects(string city)
         {
             if (_objects == null)
-                _objects = await GetObjectFromRemote(_url);
+                _objects = await GetObjectFromRemote($"{_url}&zo=/{city}");
             return _objects;
         }
 
-        public async Task<IEnumerable<Entities.Object>> GetObjectsWithTuin()
+        public async Task<IEnumerable<Entities.Object>> GetObjectsWithTuin(string city)
         {
             if (_objectsWithTuin == null)
-                _objectsWithTuin = await GetObjectFromRemote($"{_url}/tuin");
+                _objectsWithTuin = await GetObjectFromRemote($"{_url}&zo=/{city}/tuin");
             return _objectsWithTuin;
         }
 
