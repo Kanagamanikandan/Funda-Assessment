@@ -30,7 +30,7 @@ namespace FundaAssignment.API
             services.AddControllers();
             services.AddControllersWithViews();
             services.AddTransient<IObjectService, ObjectService>();
-            services.AddSingleton<IObjectRepository>(_ => new ObjectRepository("http://partnerapi.funda.nl/feeds/Aanbod.svc/json/ac1b0b1572524640a0ecc54de453ea9f/?type=koop&zo=/Amsterdam"));
+            services.AddSingleton<IObjectRepository>(_ => new ObjectRepository(Configuration["ApiEndpoint"]));
 
         }
 
